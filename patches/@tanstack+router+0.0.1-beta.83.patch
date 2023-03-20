@@ -1,0 +1,14 @@
+diff --git a/node_modules/@tanstack/router/build/esm/index.js b/node_modules/@tanstack/router/build/esm/index.js
+index a97997d..9ab8062 100644
+--- a/node_modules/@tanstack/router/build/esm/index.js
++++ b/node_modules/@tanstack/router/build/esm/index.js
+@@ -457,6 +457,9 @@ function matchByPath(basepath, from, matchLocation) {
+           if (baseSegment?.value === '/') {
+             return false;
+           }
++          if (isLastRouteSegment && !isLastBaseSegment) {
++            return false;
++          }
+           if (baseSegment.value.charAt(0) !== '$') {
+             params[routeSegment.value.substring(1)] = baseSegment.value;
+           }
